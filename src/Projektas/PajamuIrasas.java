@@ -61,9 +61,8 @@ public class PajamuIrasas {
     public String toString() {
         return "Operacijos Nr.:= " + kategorijosIndeksas  +
                 ", Suma= " + suma +
-                ", Data= " + data + '\'' +
-//                ", gautaISaskaita=" + gautaISaskaita +
-                ", Operacijos paskirtis= " + papildomaInfo + '\'';
+                ", Data= " + data +
+                ", Operacijos paskirtis= " + papildomaInfo;
     }
 }
 

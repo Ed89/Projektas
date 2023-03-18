@@ -64,8 +64,8 @@ public class IslaiduIrasas {
     public String toString() {
         return  "Operacijos Nr.:= " + kategorijosIndeksas +
                 ", Suma= " + suma +
-                ", Data= " + data + '\'' +
-                ", Atsiskaitymo budas= " + atsiskaitymoBudas + '\'' +
-                ", Paskirtis= " + papildomaInfo + '\'';
+                ", Data= " + data  +
+                ", Atsiskaitymo budas= " + atsiskaitymoBudas  +
+                ", Paskirtis= " + papildomaInfo;
     }
 }
