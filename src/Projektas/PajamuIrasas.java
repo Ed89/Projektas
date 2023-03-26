@@ -1,68 +1,36 @@
 package Projektas;
 
-public class PajamuIrasas {
-    private double suma;
-    private int kategorijosIndeksas;
-    private String data;
+public class PajamuIrasas extends Irasas{
+
     private boolean gautaISaskaita;
-    private String papildomaInfo;
-    public PajamuIrasas(){
 
-    }
-    public PajamuIrasas(int kategorijosIndeksas, double suma, String data, boolean gautaISaskaita, String papildomaInfo) {
-        this.suma = suma;
-        this.kategorijosIndeksas = kategorijosIndeksas;
-        this.data = data;
+   public PajamuIrasas(){
+       super();
+       this.gautaISaskaita = gautaISaskaita;
+   }
+
+
+    public PajamuIrasas(double suma, String data, String papildomaInfo) {
+        super(suma, data, papildomaInfo);
         this.gautaISaskaita = gautaISaskaita;
-        this.papildomaInfo = papildomaInfo;
-    }
-
-    public double getSuma() {
-        return suma;
-    }
-
-    public void setSuma(double suma) {
-        this.suma = suma;
-    }
-
-    public int getKategorijosIndeksas() {
-        return kategorijosIndeksas;
-    }
-
-    public void setKategorijosIndeksas(int kategorijosIndeksas) {
-        this.kategorijosIndeksas = kategorijosIndeksas;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     public boolean isGautaISaskaita() {
         return gautaISaskaita;
     }
 
-    public void setGautaISaskaita(boolean gautaISaskaita) {
+    public  void setGautaISaskaita(boolean gautaISaskaita) {
         this.gautaISaskaita = gautaISaskaita;
-    }
-
-    public String getPapildomaInfo() {
-        return papildomaInfo;
-    }
-
-    public void setPapildomaInfo(String papildomaInfo) {
-        this.papildomaInfo = papildomaInfo;
     }
 
     @Override
     public String toString() {
-        return "Operacijos Nr.:= " + kategorijosIndeksas  +
-                ", Suma= " + suma +
-                ", Data= " + data +
-                ", Operacijos paskirtis= " + papildomaInfo;
+        return  "Operacijos Nr.: " + getKategorijosIndeksas() +
+                ", Suma: "+ getSuma() +
+                ", Data: " + getData()+
+                ", Papildoma informacija: " + getPapildomaInfo()+
+                ", Gauta i banko saskaita: " + gautaISaskaita ;
     }
+
 }
 
