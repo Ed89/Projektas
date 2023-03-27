@@ -1,10 +1,12 @@
 package Projektas;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import static Projektas.Main.pasirinkti;
+
 
 public class Main {
 
@@ -31,7 +33,8 @@ public class Main {
                     5 - Jusu balansas
                     6 - Pasalinti irasa
                     7 - Redauoti irasa
-                    8 - Baigti programa
+                    8 - Darbas su failu
+                    9 - Baigti programa
                     Koks Jusu pasirinkimas: \s """);
 
             pasirinkimas = (int) pasirinkti();
@@ -44,10 +47,43 @@ public class Main {
                 case 5 -> System.out.printf("Jusu balansas: %.2f eu\n", biudzetas.balansas());
                 case 6 -> istrintiIrasa(biudzetas);
                 case 7 -> redagavimas(biudzetas);
-                case 8 -> veiksmas = false;
+                case 8 -> darbasSuFailu(biudzetas);
+                case 9 -> veiksmas = false;
             }
         }
 
+    }
+
+    private static void darbasSuFailu(Biudzetas biudzetas) {
+        System.out.print("""
+                Koki veiksma norite atlikti:
+                1 - irasyti i faila
+                2 - nuskaityti is failo
+                Jusu variantas: \s""");
+        pasirinkimas = (int) pasirinkti();
+        switch (pasirinkimas){
+            case 1 -> irasymas(biudzetas);
+            case 2 -> nuskaitymas();
+        }
+    }
+
+    private static void nuskaitymas() {
+        try {
+            File myObj = new File("text.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Nepavyko nuskaityti is failo");
+            e.printStackTrace();
+        }
+    }
+
+    private static void irasymas(Biudzetas biudzetas) {
+     biudzetas.irasymasFailas();
     }
 
 

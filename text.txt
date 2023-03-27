@@ -1,0 +1,4 @@
+P, ID: 0, Suma: 17.2, Data: 27.03.2023, Informacija: ok, Gauta i banka: false
+P, ID: 1, Suma: 33.2, Data: 27.03.2023, Informacija: ok, Gauta i banka: true
+I, ID: 2, Suma: 11.11, Data: 27.03.2023, Informacija: ok, Atsiskaitymo budas: Grynais
+I, ID: 3, Suma: 8.1, Data: 27.03.2023, Informacija: ok, Atsiskaitymo budas: Banko kortele

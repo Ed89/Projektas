@@ -1,5 +1,7 @@
 package Projektas;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -132,7 +134,6 @@ public class Biudzetas {
                                     2- Ne\s""");
                             switch ((int) pasirinkti()) {
                                 case 1 -> pajamuIrasas.setGautaISaskaita(true);
-
                                 case 2 -> pajamuIrasas.setGautaISaskaita(false);
                             }
                         }
@@ -188,5 +189,30 @@ public class Biudzetas {
     }
 
 
+    public void irasymasFailas() {
+        try {
+            FileWriter myWriter = new FileWriter("text.txt");
+
+            for (Irasas irasai : irasas) {
+                if (irasai instanceof PajamuIrasas) {
+                    PajamuIrasas pajamos = (PajamuIrasas) irasai;
+                    myWriter.write("P, ID: " + pajamos.getKategorijosIndeksas() + ", Suma: " + pajamos.getSuma() + ", Data: " + pajamos.getData()
+                            + ", Informacija: " + pajamos.getPapildomaInfo() + ", Gauta i banka: " + pajamos.isGautaISaskaita()+"\n");
+                } else if (irasai instanceof IslaiduIrasas) {
+                    IslaiduIrasas islaidos = (IslaiduIrasas) irasai;
+                    myWriter.write("I, ID: " + islaidos.getKategorijosIndeksas() + ", Suma: " + islaidos.getSuma() + ", Data: " + islaidos.getData()
+                            + ", Informacija: " + islaidos.getPapildomaInfo() + ", Atsiskaitymo budas: " + islaidos.getAtsiskaitymoBudas()+"\n");
+                }
+            }
+
+
+
+            myWriter.close();
+            System.out.println("I failo pavyko irasyti.");
+        } catch (IOException e) {
+            System.out.println("Ivyko irasymo klaida");
+            e.printStackTrace();
+        }
+    }
 }
 
